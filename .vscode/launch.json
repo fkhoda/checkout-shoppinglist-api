@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ShoppingListService.Infrastructure.WebApi",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}/src/ShoppingListService.Infrastructure.WebApi/bin/Debug/netcoreapp1.1/ShoppingListService.Infrastructure.WebApi.dll",
+            "args": [],
+            "cwd": "${workspaceRoot}/src/ShoppingListService.Infrastructure.WebApi",
+            "stopAtEntry": false,
+            "launchBrowser": {
+                "enabled": true,
+                "args": "${auto-detect-url}",
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start ${auto-detect-url}"
+                },
+                "osx": {
+                    "command": "open"
+                },
+                "linux": {
+                    "command": "xdg-open"
+                }
+            }
+        }
+    ]
+}

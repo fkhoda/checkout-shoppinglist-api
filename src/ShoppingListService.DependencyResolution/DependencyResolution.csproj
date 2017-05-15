@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyName>ShoppingListService.DependencyResolution</AssemblyName>
+    <RootNamespace>ShoppingListService.DependencyResolution</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\ShoppingListService.Infrastructure.WebApi\bin\Debug</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\ShoppingListService.Infrastructure.WebApi\bin\Release</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingListService.Infrastructure.Actors\Infrastructure.Actors.csproj" />
+    <ProjectReference Include="..\ShoppingListService.Core\Core.csproj" />
+    <ProjectReference Include="..\ShoppingListService.Infrastructure.Actor.Persistence\Infrastructure.Actor.Persistence.csproj" />
+    <ProjectReference Include="..\ShoppingListService.Infrastructure.WebApi\Infrastructure.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>

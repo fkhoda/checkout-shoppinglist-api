@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyName>ShoppingListService.Infrastructure.Actor.Persistence</AssemblyName>
+    <RootNamespace>ShoppingListService.Infrastructure.Actor.Persistence</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\ShoppingListService.Infrastructure.WebApi\bin\Debug</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\ShoppingListService.Infrastructure.WebApi\bin\Release</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="Proto.Actor" Version="0.1.8" />
+    <PackageReference Include="Proto.Persistence" Version="0.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingListService.Infrastructure.Actors\Infrastructure.Actors.csproj" />
+    <ProjectReference Include="..\ShoppingListService.Core\Core.csproj" />
+  </ItemGroup>
+
+</Project>
