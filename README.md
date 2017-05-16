@@ -62,6 +62,8 @@ kubectl create -f kubernetes/service.yaml
 - Onion Architecture
 - Actor Model with in-memory Event Sourcing and Snapshotting using Proto Actor (<http://proto.actor>)
 
+![](https://github.com/fkhoda/checkout-shoppinglist-api/blob/master/docs/actor-model.png)
+
 ## Feature Highlights
 - Validation using Fluent Validation (<https://github.com/JeremySkinner/FluentValidation>)
 - Dead Simple Authentication Middleware
