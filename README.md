@@ -17,6 +17,12 @@
 ./run.ps1
 ```
 
+## Docker
+```
+docker build -t checkout/shoppinglist-api .
+docker run -it -p 80:5000 checkout/shoppinglist-api
+```
+
 ## Architecture
 - Onion Architecture
 - Actor Model with in-memory Event Sourcing and Snapshotting using Proto Actor (<http://proto.actor>)
