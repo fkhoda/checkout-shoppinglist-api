@@ -5,11 +5,11 @@
 
     using Microsoft.AspNetCore.Http;
 
-    public class AuthenticationMiddleware
+    public class AuthorizationMiddleware
     {
         private readonly RequestDelegate next;
 
-        public AuthenticationMiddleware(RequestDelegate next)
+        public AuthorizationMiddleware(RequestDelegate next)
         {
             this.next = next;
         }
