@@ -1,10 +1,11 @@
-FROM microsoft/aspnetcore-build:1.1.2
+FROM microsoft/dotnet:1.1.1-runtime
+COPY src/ShoppingListService.DependencyResolution/build /app
+COPY src/ShoppingListService.Infrastructure.Actor.Persistence/build /app
+COPY src/ShoppingListService.Infrastructure.Actors/build /app
+COPY src/ShoppingListService.Infrastructure.WebApi/build /app
 WORKDIR /app
 
-COPY . .
-RUN dotnet restore
-RUN dotnet publish --output /out/ --configuration Release
-
+EXPOSE 5000/tcp
 ENV ASPNETCORE_URLS http://*:5000
-WORKDIR /out
+
 ENTRYPOINT ["dotnet", "ShoppingListService.Infrastructure.WebApi.dll"]

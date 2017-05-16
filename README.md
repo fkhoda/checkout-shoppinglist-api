@@ -18,10 +18,45 @@
 ```
 
 ## Docker
+
+### Build Image
+
 ```
-docker build -t checkout/shoppinglist-api .
-docker run -it -p 80:5000 checkout/shoppinglist-api
+dotnet restore
+dotnet publish -o build -c Release
+docker build -t fkhoda/checkout-shoppinglist-api .
 ```
+
+### Run Image
+
+```
+docker run -it -p 8080:5000 fkhoda/checkout-shoppinglist-api
+```
+
+### Access Service
+
+<http://localhost:8080>
+
+## Kubernetes
+
+### Push Docker Image to Registry
+
+```
+docker push fkhoda/checkout-shoppinglist-api
+```
+
+### Deploy to Minikube Cluster
+
+```
+kubectl create -f kubernetes/namespace.yaml
+kubectl create -f kubernetes/deployment.yaml
+kubectl create -f kubernetes/service.yaml
+```
+
+### Access Service
+
+<http://{cluster-ip}:30080>
+
 
 ## Architecture
 - Onion Architecture

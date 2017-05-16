@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: checkout-shoppinglist-api
+  namespace: checkout-dev
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: checkout-shoppinglist-api
+    spec:
+      containers:
+      - name: checkout-shoppinglist-api
+        image: fkhoda/checkout-shoppinglist-api:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
