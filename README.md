@@ -23,7 +23,7 @@
 
 ## Feature Highlights
 - Validation using Fluent Validation (<https://github.com/JeremySkinner/FluentValidation>)
-- Dead Simple Authorization Middleware
+- Dead Simple Authentication Middleware
 - Native .NET Core Dependency Injection
 - Basic Pagination
 

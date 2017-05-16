@@ -47,7 +47,7 @@
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMiddleware<AuthorizationMiddleware>();
+            app.UseMiddleware<AuthenticationMiddleware>();
 
             app.UseMvc();
         }
