@@ -15,6 +15,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="build\**" />
+    <EmbeddedResource Remove="build\**" />
+    <None Remove="build\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ShoppingListService.Infrastructure.Actors\Infrastructure.Actors.csproj" />
     <ProjectReference Include="..\ShoppingListService.Core\Core.csproj" />
     <ProjectReference Include="..\ShoppingListService.Infrastructure.Actor.Persistence\Infrastructure.Actor.Persistence.csproj" />
