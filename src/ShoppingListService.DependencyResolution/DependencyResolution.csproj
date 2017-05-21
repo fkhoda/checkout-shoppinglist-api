@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShoppingListService.Infrastructure.Actor.Monitoring\Infrastructure.Actor.Monitoring.csproj" />
     <ProjectReference Include="..\ShoppingListService.Infrastructure.Actors\Infrastructure.Actors.csproj" />
     <ProjectReference Include="..\ShoppingListService.Core\Core.csproj" />
     <ProjectReference Include="..\ShoppingListService.Infrastructure.Actor.Persistence\Infrastructure.Actor.Persistence.csproj" />

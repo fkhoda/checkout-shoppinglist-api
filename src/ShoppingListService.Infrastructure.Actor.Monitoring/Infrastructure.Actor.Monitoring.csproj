@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <AssemblyName>ShoppingListService.Infrastructure.Actor.Persistence</AssemblyName>
-    <RootNamespace>ShoppingListService.Infrastructure.Actor.Persistence</RootNamespace>
+    <AssemblyName>ShoppingListService.Infrastructure.Actor.Monitoring</AssemblyName>
+    <RootNamespace>ShoppingListService.Infrastructure.Actor.Monitoring</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -15,19 +15,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="build\**" />
-    <EmbeddedResource Remove="build\**" />
-    <None Remove="build\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="NEST" Version="5.4.0" />
     <PackageReference Include="Proto.Actor" Version="0.1.8" />
-    <PackageReference Include="Proto.Persistence" Version="0.1.8" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShoppingListService.Infrastructure.Actors\Infrastructure.Actors.csproj" />
     <ProjectReference Include="..\ShoppingListService.Core\Core.csproj" />
   </ItemGroup>
 

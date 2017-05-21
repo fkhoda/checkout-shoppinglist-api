@@ -7,14 +7,17 @@
     using Proto.Persistence;
 
     using ShoppingListService.Core.Application.ShoppingList.Actors.Messages;
+    using ShoppingListService.Infrastructure.Actor.Monitoring;
 
     public class ShoppingListsActor : IActor
     {
         private readonly IProvider persistenceProvider;
+        private readonly IMonitoringProvider monitoringProvider;
 
-        public ShoppingListsActor(IProvider persistenceProvider)
+        public ShoppingListsActor(IProvider persistenceProvider, IMonitoringProvider monitoringProvider)
         {
             this.persistenceProvider = persistenceProvider;
+            this.monitoringProvider = monitoringProvider;
         }
 
         public Task ReceiveAsync(IContext context)
@@ -23,7 +26,10 @@
             {
                 var message = context.Message as ShoppingListMessage;
 
-                var props = Actor.FromProducer(() => new ShoppingListActor()).WithReceiveMiddleware(Persistence.Using(persistenceProvider));
+                var props = Actor.FromProducer(() => new ShoppingListActor())
+                    .WithReceiveMiddleware(Persistence.Using(persistenceProvider))
+                    .WithReceiveMiddleware(Monitoring.ForReceiveMiddlewareUsing(monitoringProvider))
+                    .WithSenderMiddleware(Monitoring.ForSenderMiddlewareUsing(monitoringProvider));
 
                 var childId = $"{context.Self.Id}/{message.CustomerId}";
 
