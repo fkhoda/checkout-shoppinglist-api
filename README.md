@@ -33,26 +33,17 @@ dotnet publish -o build -c Release
 docker build -t fkhoda/checkout-shoppinglist-api .
 ```
 
-### Run Image
+### Run with Docker Compose
 
 ```
-docker run -it -p 8080:5000 fkhoda/checkout-shoppinglist-api
+docker-compose up
 ```
 
-### Run Image with ELK Monitoring
+### Access
 
-```
-docker run -d -p 9200:9200 -p 5601:5601 -e ES_JAVA_OPTS="-Xms512m -Xmx512m" --name esk nshou/elasticsearch-kibana
-docker run -it -p 8080:5000 -e ELASTICSEARCH_HOST="http://{docker-machine-up}:9200" fkhoda/checkout-shoppinglist-api
-```
-
+- API: <http://{docker-machine-ip}:8080>
 - Elasticsearch: <http://{docker-machine-ip}:9200>
 - Kibana: <http://{docker-machine-ip}:5601>
-
-### Access Service
-
-<http://{docker-machine-ip}:8080>
-
 
 ## Kubernetes
 

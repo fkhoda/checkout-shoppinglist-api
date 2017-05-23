@@ -1,0 +1,27 @@
+version: '3'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.4.0
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - http.host=0.0.0.0
+      - network.host= 127.0.0.1
+  kibana:
+    image: docker.elastic.co/kibana/kibana:5.4.0
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+  web:
+    image: fkhoda/checkout-shoppinglist-api
+    container_name: checkout-shoppinglist-api
+    ports:
+      - "8080:5000"
+    depends_on:
+      - elasticsearch
+      - kibana

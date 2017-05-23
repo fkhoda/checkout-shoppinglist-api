@@ -1,5 +1,6 @@
 FROM microsoft/dotnet:1.1.1-runtime
 COPY src/ShoppingListService.DependencyResolution/build /app
+COPY src/ShoppingListService.Infrastructure.Actor.Monitoring/build /app
 COPY src/ShoppingListService.Infrastructure.Actor.Persistence/build /app
 COPY src/ShoppingListService.Infrastructure.Actors/build /app
 COPY src/ShoppingListService.Infrastructure.WebApi/build /app

@@ -12,8 +12,4 @@
     <None Remove="build\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Domain\Monitor\" />
-  </ItemGroup>
-
 </Project>
