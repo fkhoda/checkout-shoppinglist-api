@@ -44,7 +44,9 @@ $ docker-compose up
 - API: <http://{docker-machine-ip}:8080>
 - Elasticsearch: <http://{docker-machine-ip}:9200>
 - Kibana: <http://{docker-machine-ip}:5601>
-
+    - Username: elastic
+    - Password: changeme
+    
 ## Kubernetes
 
 ### Push Docker Image to Registry
@@ -74,6 +76,8 @@ $ kubectl create -f ./kubernetes -R --namespace=default
 - API: <http://{minikube-ip}:30080>
 - Elasticsearch: <http://{minikube-ip}:30920>
 - Kibana: <http://{minikube-ip}:31601>
+    - Username: elastic
+    - Password: changeme
 
 ## Architecture
 - Onion Architecture
