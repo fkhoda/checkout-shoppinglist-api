@@ -39,13 +39,15 @@
             var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
             var solutionName = assembly.FullName.Substring(0, assembly.FullName.IndexOf('.'));
             dynamic obj = assembly.CreateInstance($"{solutionName}.DependencyResolution.DependencyRegistrar");
-            obj.Register(services, Configuration);
+            var serviceProvider = services.BuildServiceProvider();
+            obj.Register(serviceProvider, services, Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            
 
             app.UseMiddleware<AuthenticationMiddleware>();
 

@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: checkout-shoppinglist-api
-  namespace: checkout-dev
 spec:
   replicas: 3
   template:

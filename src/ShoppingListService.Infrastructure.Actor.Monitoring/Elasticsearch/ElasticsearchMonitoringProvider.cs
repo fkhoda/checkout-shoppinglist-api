@@ -3,6 +3,8 @@
     using System;
     using System.Threading.Tasks;
 
+    using Microsoft.Extensions.Logging;
+
     using Nest;
 
     using Proto;
@@ -11,7 +13,8 @@
     {
         private readonly ElasticClient elasticClient;
 
-        public ElasticsearchMonitoringProvider(string uri, string indexName, string username, string password)
+        public ElasticsearchMonitoringProvider(string uri, string indexName, string username,
+            string password, bool recreateIndex, ILogger logger)
         {
             var connectionSettings = new ConnectionSettings(new Uri(uri))
                 .DefaultIndex(indexName)
@@ -19,9 +22,13 @@
 
             elasticClient = new ElasticClient(connectionSettings);
 
-            if (elasticClient.IndexExists(indexName).Exists)
+            if (recreateIndex)
             {
-                elasticClient.DeleteIndex(indexName);
+                logger.LogInformation($"Recreating index {indexName}");
+                if (elasticClient.IndexExists(indexName).Exists)
+                {
+                    elasticClient.DeleteIndex(indexName);
+                }
             }
 
             if (!elasticClient.IndexExists(indexName).Exists)

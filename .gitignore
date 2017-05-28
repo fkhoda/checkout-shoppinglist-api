@@ -234,3 +234,5 @@ _Pvt_Extensions
 .fake/
 
 tools/
+
+.kube

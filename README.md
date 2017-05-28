@@ -8,19 +8,19 @@
 ## Build
 
 ```
-./build.ps1
+$ ./build.ps1
 ```
 
 ## Run
 
 ```
-./run.ps1
+$ ./run.ps1
 ```
 
 ## Test
 
 ```
-./tests.ps1
+$ ./tests.ps1
 ```
 
 ## Docker
@@ -28,15 +28,15 @@
 ### Build Image
 
 ```
-dotnet restore
-dotnet publish -o build -c Release
-docker build -t fkhoda/checkout-shoppinglist-api .
+$ dotnet restore
+$ dotnet publish -o build -c Release
+$ docker build -t fkhoda/checkout-shoppinglist-api .
 ```
 
 ### Run with Docker Compose
 
 ```
-docker-compose up
+$ docker-compose up
 ```
 
 ### Access
@@ -50,21 +50,30 @@ docker-compose up
 ### Push Docker Image to Registry
 
 ```
-docker push fkhoda/checkout-shoppinglist-api
+$ docker push fkhoda/checkout-shoppinglist-api
 ```
 
 ### Deploy to Minikube Cluster
 
+Deploy ELK for monitoring (Optional)
+
 ```
-kubectl create -f kubernetes/namespace.yaml
-kubectl create -f kubernetes/deployment.yaml
-kubectl create -f kubernetes/service.yaml
+$ git clone https://github.com/fkhoda/elk-kubernetes.git
+$ cd elk-kubernetes
+$ kubectl create -f . -R --namespace=default
 ```
 
-### Access Service
+Deploy Shopping List API
 
-<http://{cluster-ip}:30080>
+```
+$ kubectl create -f ./kubernetes -R --namespace=default
+```
 
+### Access
+
+- API: <http://{minikube-ip}:30080>
+- Elasticsearch: <http://{minikube-ip}:30920>
+- Kibana: <http://{minikube-ip}:31601>
 
 ## Architecture
 - Onion Architecture
