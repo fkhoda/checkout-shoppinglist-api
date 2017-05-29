@@ -13,5 +13,16 @@ spec:
       - name: checkout-shoppinglist-api
         image: fkhoda/checkout-shoppinglist-api:latest
         imagePullPolicy: Always
+        env:
+          - name: ES_URL
+            value: http://elasticsearch:9200
+          - name: ES_INDEX
+            value: checkout
+          - name: ES_USERNAME
+            value: elastic
+          - name: ES_PASSWORD
+            value: changeme
+          - name: ES_RECREATEINDEXONSTARTUP
+            value: "false"
         ports:
         - containerPort: 5000

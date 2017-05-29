@@ -62,13 +62,21 @@ Deploy ELK for monitoring (Optional)
 ```
 $ git clone https://github.com/fkhoda/elk-kubernetes.git
 $ cd elk-kubernetes
-$ kubectl create -f . -R --namespace=default
+$ kubectl create -f .\kubefiles\ -R --namespace=default
 ```
 
-Deploy Shopping List API
+Deploy Shopping List API with ELK monitoring
 
 ```
-$ kubectl create -f ./kubernetes -R --namespace=default
+$ kubectl create -f ./kubernetes/sl-deployment-with-monitoring.yaml --namespace=default
+$ kubectl create -f ./kubernetes/sl-service.yaml --namespace=default
+```
+
+Deploy Shopping List API without ELK monitoring
+
+```
+$ kubectl create -f ./kubernetes/sl-deployment.yaml --namespace=default
+$ kubectl create -f ./kubernetes/sl-service.yaml --namespace=default
 ```
 
 ### Access
