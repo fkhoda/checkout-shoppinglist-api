@@ -1,0 +1,38 @@
+version: '3'
+services:
+  elasticsearch:
+    image: fkhoda/elasticsearch:5.4.0
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - ES_JAVA_OPTS=-Xmx256m -Xms256m
+  kibana:
+    image: fkhoda/kibana:5.4.0
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+  logstash:
+    image: fkhoda/logstash:5.4.0
+    container_name: logstash
+    ports:
+      - "5000:5000"
+    environment:
+      - LS_JAVA_OPTS=-Xmx256m -Xms256m
+    depends_on:
+      - elasticsearch
+  web:
+    image: fkhoda/checkout-shoppinglist-api
+    container_name: checkout-shoppinglist-api
+    ports:
+      - "8080:5000"
+    environment:
+      - ES_URL=http://elasticsearch:9200
+      - ES_INDEX=checkout
+      - ES_RECREATEINDEXONSTARTUP=false
+    depends_on:
+      - elasticsearch
+      - kibana

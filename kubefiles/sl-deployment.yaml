@@ -12,6 +12,5 @@ spec:
       containers:
       - name: checkout-shoppinglist-api
         image: fkhoda/checkout-shoppinglist-api:latest
-        imagePullPolicy: Always
         ports:
         - containerPort: 5000

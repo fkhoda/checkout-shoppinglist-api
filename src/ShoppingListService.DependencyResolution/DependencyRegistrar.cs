@@ -32,8 +32,7 @@
                         var password = GetConfig<string>(configurationRoot, "ES_PASSWORD", "Monitoring:Elasticsearch:Password");
                         var recreateIndexOnStartup = GetConfig<bool>(configurationRoot, "ES_RECREATEINDEXONSTARTUP", "Monitoring:Elasticsearch:RecreateIndexOnStartup");
 
-                        if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(index) ||
-                            string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                        if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(index))
                         {
                             logger.LogInformation("Using Noop monitoring.");
                             return new NoopMonitoringProvider();

@@ -1,9 +1,14 @@
 # Checkout Shopping List API
 
 
-## Prerequisites
+## Tooling
 
+### Required
 - ASP.NET Core 1.1
+
+### Optional
+- Docker (Optional) - Tested on Docker client 17.04.0-ce, Docker server 17.05.0-ce, Docker Machine 0.10.0 and Docker Compose 1.12.0
+- Kubernetes (Optional) - Tested on Kubernetes v1.6.0, kubectl v1.6.2 and Minikube v0.19.0
 
 ## Build
 
@@ -35,6 +40,14 @@ $ docker build -t fkhoda/checkout-shoppinglist-api .
 
 ### Run with Docker Compose
 
+With ELK monitoring:
+
+```
+$ docker-compose -f docker-compose-with-monitoring.yml up
+```
+
+Without ELK monitoring:
+
 ```
 $ docker-compose up
 ```
@@ -44,8 +57,7 @@ $ docker-compose up
 - API: <http://{docker-machine-ip}:8080>
 - Elasticsearch: <http://{docker-machine-ip}:9200>
 - Kibana: <http://{docker-machine-ip}:5601>
-    - Username: elastic
-    - Password: changeme
+    - Please allow Kibana a few minutes to optimize its assets before accessing the dashboard.
     
 ## Kubernetes
 
@@ -68,15 +80,15 @@ $ kubectl create -f .\kubefiles\ -R --namespace=default
 Deploy Shopping List API with ELK monitoring
 
 ```
-$ kubectl create -f ./kubernetes/sl-deployment-with-monitoring.yaml --namespace=default
-$ kubectl create -f ./kubernetes/sl-service.yaml --namespace=default
+$ kubectl create -f ./kubefiles/sl-deployment-with-monitoring.yaml --namespace=default
+$ kubectl create -f ./kubefiles/sl-service.yaml --namespace=default
 ```
 
 Deploy Shopping List API without ELK monitoring
 
 ```
-$ kubectl create -f ./kubernetes/sl-deployment.yaml --namespace=default
-$ kubectl create -f ./kubernetes/sl-service.yaml --namespace=default
+$ kubectl create -f ./kubefiles/sl-deployment.yaml --namespace=default
+$ kubectl create -f ./kubefiles/sl-service.yaml --namespace=default
 ```
 
 ### Access
@@ -84,8 +96,7 @@ $ kubectl create -f ./kubernetes/sl-service.yaml --namespace=default
 - API: <http://{minikube-ip}:30080>
 - Elasticsearch: <http://{minikube-ip}:30920>
 - Kibana: <http://{minikube-ip}:31601>
-    - Username: elastic
-    - Password: changeme
+    - Please allow Kibana a few minutes to optimize its assets before accessing the dashboard.
 
 ## Architecture
 - Onion Architecture
