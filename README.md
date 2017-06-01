@@ -4,11 +4,15 @@
 ## Tooling
 
 ### Required
+
 - ASP.NET Core 1.1
 
 ### Optional
-- Docker (Optional) - Tested on Docker client 17.04.0-ce, Docker server 17.05.0-ce, Docker Machine 0.10.0 and Docker Compose 1.12.0
-- Kubernetes (Optional) - Tested on Kubernetes v1.6.0, kubectl v1.6.2 and Minikube v0.19.0
+
+- Docker - Tested on Docker client 17.04.0-ce, Docker server 17.05.0-ce, Docker Machine 0.10.0 and Docker Compose 1.12.0
+- Kubernetes - Tested on Kubernetes v1.6.0, kubectl v1.6.2 and Minikube v0.19.0
+
+Note that you may need to increase your VM memory limit to 4GB or higher.
 
 ## Build
 
