@@ -65,6 +65,8 @@ $ docker-compose up
     
 ## Kubernetes
 
+![](https://raw.githubusercontent.com/fkhoda/checkout-shoppinglist-api/master/docs/kubernetes.png)
+
 ### Push Docker Image to Registry
 
 ```
