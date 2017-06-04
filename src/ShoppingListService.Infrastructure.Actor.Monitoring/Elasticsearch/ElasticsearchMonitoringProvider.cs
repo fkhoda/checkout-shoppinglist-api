@@ -36,7 +36,13 @@
 
             if (!elasticClient.IndexExists(indexName).Exists)
             {
-                elasticClient.CreateIndex(indexName);
+                var descriptor = new CreateIndexDescriptor(indexName)
+                    .Mappings(ms => ms
+                        .Map<ReceivedMessage>(m => m.AutoMap())
+                        .Map<SentMessage>(m => m.AutoMap())
+                    );
+
+                elasticClient.CreateIndex(indexName, d => descriptor);
             }
         }
 

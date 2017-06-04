@@ -1,0 +1,131 @@
+[
+  {
+    "_id": "0f6b3e60-48b0-11e7-8c70-01364a35bdd0",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Checkout Shopping List API",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"8722b3f0-48ad-11e7-951a-f7fff636dfd4\",\"panelIndex\":1,\"row\":1,\"size_x\":5,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"854db060-48ae-11e7-812a-5933a6cb564d\",\"panelIndex\":2,\"row\":3,\"size_x\":5,\"size_y\":2,\"type\":\"visualization\"},{\"col\":6,\"id\":\"aed9ae10-48c8-11e7-8c70-01364a35bdd0\",\"panelIndex\":3,\"row\":1,\"size_x\":5,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"18457140-48c9-11e7-8c70-01364a35bdd0\",\"panelIndex\":4,\"row\":5,\"size_x\":5,\"size_y\":2,\"type\":\"visualization\"},{\"col\":6,\"id\":\"6d6966e0-48c9-11e7-8c70-01364a35bdd0\",\"panelIndex\":5,\"row\":3,\"size_x\":5,\"size_y\":2,\"type\":\"visualization\"},{\"col\":11,\"id\":\"4e962670-48d0-11e7-a58f-656aba9b84ef\",\"panelIndex\":6,\"row\":3,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":11,\"id\":\"ca4f1b80-48d7-11e7-a58f-656aba9b84ef\",\"panelIndex\":7,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"size_x\":7,\"size_y\":2,\"panelIndex\":8,\"type\":\"visualization\",\"id\":\"dae2b2e0-4954-11e7-85f0-43931944de75\",\"col\":6,\"row\":5}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{\"P-1\":{\"vis\":{\"legendOpen\":true}},\"P-2\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-6\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+      }
+    }
+  },
+  {
+    "_id": "6d6966e0-48c9-11e7-8c70-01364a35bdd0",
+    "_type": "visualization",
+    "_source": {
+      "title": "Update Quantity",
+      "visState": "{\"title\":\"Update Quantity\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"Time\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Requested\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"},{\"data\":{\"id\":\"3\",\"label\":\"Forwarded\"},\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"lineWidth\":2,\"mode\":\"stacked\",\"show\":true,\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"\"},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.UpdateQuantity AND selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Requested\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Time\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"3-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.UpdateQuantity AND NOT selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"3-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Forwarded\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Sent\":\"#EA6460\",\"Received\":\"#705DA0\",\"Requested\":\"#EA6460\",\"Forwarded\":\"#705DA0\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"checkout\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "aed9ae10-48c8-11e7-8c70-01364a35bdd0",
+    "_type": "visualization",
+    "_source": {
+      "title": "Get Item",
+      "visState": "{\"title\":\"Get Item\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"Time\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Requested\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"},{\"data\":{\"id\":\"3\",\"label\":\"Forwarded\"},\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"lineWidth\":2,\"mode\":\"stacked\",\"show\":true,\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"\"},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.GetItem AND selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Requested\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Time\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"3-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.GetItem AND NOT selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"3-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Forwarded\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Sent\":\"#806EB7\",\"Received\":\"#629E51\",\"Requested\":\"#EF843C\",\"Forwarded\":\"#629E51\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"checkout\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "8722b3f0-48ad-11e7-951a-f7fff636dfd4",
+    "_type": "visualization",
+    "_source": {
+      "title": "Add Item",
+      "visState": "{\"title\":\"Add Item\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"Time\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Requested\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"},{\"data\":{\"id\":\"3\",\"label\":\"Forwarded\"},\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"lineWidth\":2,\"mode\":\"stacked\",\"show\":true,\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"\"},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.AddItem AND selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Requested\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Time\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"3-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.AddItem AND NOT selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"3-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Forwarded\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Received\":\"#1F78C1\",\"Sent\":\"#E5AC0E\",\"Requested\":\"#EAB839\",\"Forwarded\":\"#1F78C1\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"checkout\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "854db060-48ae-11e7-812a-5933a6cb564d",
+    "_type": "visualization",
+    "_source": {
+      "title": "Get Items",
+      "visState": "{\"title\":\"Get Items\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"Time\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Requested\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"},{\"data\":{\"id\":\"3\",\"label\":\"Forwarded\"},\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"lineWidth\":2,\"mode\":\"stacked\",\"show\":true,\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"\"},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.GetItems AND selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{\"customLabel\":\"\"}},\"customLabel\":\"Requested\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Time\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"3-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.GetItems AND NOT selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"3-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{\"customLabel\":\"\"}},\"customLabel\":\"Forwarded\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Sent\":\"#6ED0E0\",\"Received\":\"#EF843C\",\"Requested\":\"#6ED0E0\",\"Forwarded\":\"#EF843C\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"checkout\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "18457140-48c9-11e7-8c70-01364a35bdd0",
+    "_type": "visualization",
+    "_source": {
+      "title": "Remove Item",
+      "visState": "{\"title\":\"Remove Item\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"Time\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Requested\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"},{\"data\":{\"id\":\"3\",\"label\":\"Forwarded\"},\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"lineWidth\":2,\"mode\":\"stacked\",\"show\":true,\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"\"},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.RemoveItem AND selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Requested\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Time\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"3-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"typeName: ShoppingListService.Core.Application.ShoppingList.Actors.Messages.RemoveItem AND NOT selfId: ShoppingLists\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"3-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Forwarded\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Sent\":\"#629E51\",\"Received\":\"#E5AC0E\",\"Requested\":\"#629E51\",\"Forwarded\":\"#E5AC0E\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"checkout\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "ca4f1b80-48d7-11e7-a58f-656aba9b84ef",
+    "_type": "visualization",
+    "_source": {
+      "title": "ShoppingList Actors Started",
+      "visState": "{\"title\":\"ShoppingList Actors Started\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"-selfId: ShoppingLists AND typeName: Proto.Started\",\"analyze_wildcard\":true}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metricAgg\",\"params\":{\"field\":\"selfId\"}},\"customLabel\":\"ShoppingList Actors Started\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"checkout\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "dae2b2e0-4954-11e7-85f0-43931944de75",
+    "_type": "visualization",
+    "_source": {
+      "title": "Throughput",
+      "visState": "{\"title\":\"Throughput\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(timefield=\\\"timestamp\\\", kibana=true).scale_interval(1s).title(\\\"Messages per second\\\").legend(false).bars(0.5).color(orange)\",\"interval\":\"auto\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4e962670-48d0-11e7-a58f-656aba9b84ef",
+    "_type": "visualization",
+    "_source": {
+      "title": "Total Actors Started",
+      "visState": "{\"title\":\"Total Actors Started\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"typeName: Proto.Started\",\"analyze_wildcard\":true}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Total Actors Started\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"checkout\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]

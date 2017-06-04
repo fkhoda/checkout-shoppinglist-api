@@ -6,7 +6,7 @@
     using ShoppingListService.Core.Application.ShoppingList.Actors;
     using ShoppingListService.Infrastructure.Actor.Monitoring;
 
-    public class ShoppingListsActorProvider : IShoppingListsActorProvider
+    public sealed class ShoppingListsActorProvider : IShoppingListsActorProvider
     {
         public dynamic ActorInstance { get; }
 

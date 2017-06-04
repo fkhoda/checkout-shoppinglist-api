@@ -102,6 +102,8 @@ $ kubectl create -f ./kubefiles/sl-service.yaml --namespace=default
 - Kibana: <http://{minikube-ip}:31601>
     - Please allow Kibana a few minutes to optimize its assets before accessing the dashboard.
 
+![](https://raw.githubusercontent.com/fkhoda/checkout-shoppinglist-api/master/docs/monitoring.png)
+
 ## Architecture
 - Onion Architecture
 - Actor Model with in-memory Event Sourcing and Snapshotting using Proto Actor (<http://proto.actor>)
@@ -111,6 +113,7 @@ $ kubectl create -f ./kubefiles/sl-service.yaml --namespace=default
 ## Feature Highlights
 - Validation using Fluent Validation (<https://github.com/JeremySkinner/FluentValidation>)
 - Dead Simple Authentication Middleware
+- Actor Monitoring using ELK stack
 - Native .NET Core Dependency Injection
 - Basic Pagination
 

@@ -15,5 +15,10 @@
         {
             return Task.FromResult(0);
         }
+
+        public Task IndexDeadLetterEventAsync(DeadLetterEvent deadLetterEvent)
+        {
+            return Task.FromResult(0);
+        }
     }
 }
