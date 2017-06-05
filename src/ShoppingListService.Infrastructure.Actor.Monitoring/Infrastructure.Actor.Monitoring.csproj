@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Elasticsearch\kibana.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NEST" Version="5.4.0" />
     <PackageReference Include="Proto.Actor" Version="0.1.8" />
   </ItemGroup>

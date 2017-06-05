@@ -16,7 +16,7 @@
         public ElasticsearchMonitoringProvider(string uri, string indexName, string username,
             string password, bool recreateIndex, ILogger logger)
         {
-            var connectionSettings = new ConnectionSettings(new Uri(uri)).DefaultIndex(indexName);
+            var connectionSettings = new ConnectionSettings(new Uri(uri)).DefaultIndex(indexName).ThrowExceptions();
 
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
