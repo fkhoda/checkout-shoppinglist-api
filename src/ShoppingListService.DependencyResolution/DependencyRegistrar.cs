@@ -35,7 +35,7 @@
                         if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(index))
                         {
                             logger.LogInformation("Using Noop monitoring.");
-                            return new NoopMonitoringProvider();
+                            return new NoOpMonitoringProvider();
                         }
 
                         logger.LogInformation($"Using Elasticsearch monitoring at {host}.");

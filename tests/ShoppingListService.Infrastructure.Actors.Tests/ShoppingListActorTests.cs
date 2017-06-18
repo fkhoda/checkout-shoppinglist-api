@@ -22,9 +22,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -47,9 +47,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -75,9 +75,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -101,9 +101,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -126,9 +126,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -159,9 +159,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -185,9 +185,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -206,9 +206,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var spawnNamed = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -231,9 +231,9 @@
         {
             var inMemoryProviderState = new InMemoryProviderState();
             var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var noopMonitoringProvider = new NoopMonitoringProvider();
+            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noopMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 

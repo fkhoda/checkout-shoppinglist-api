@@ -4,7 +4,7 @@
 
     using Proto;
 
-    public class NoopMonitoringProvider : IMonitoringProvider
+    public class NoOpMonitoringProvider : IMonitoringProvider
     {
         public Task IndexReceiveAsync(IContext context)
         {
