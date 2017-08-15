@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <AssemblyName>ShoppingListService.Infrastructure.WebApi</AssemblyName>
-    <RootNamespace>ShoppingListService.Infrastructure.WebApi</RootNamespace>
+    <AssemblyName>ShoppingListService.WebApi</AssemblyName>
+    <RootNamespace>ShoppingListService.WebApi</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

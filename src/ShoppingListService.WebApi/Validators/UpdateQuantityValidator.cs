@@ -1,4 +1,4 @@
-﻿namespace ShoppingListService.Infrastructure.WebApi.Validators
+﻿namespace ShoppingListService.WebApi.Validators
 {
     using FluentValidation;
 
@@ -8,7 +8,7 @@
     {
         public UpdateQuantityValidator()
         {
-            RuleFor(m => m.Quantity).GreaterThan(0).WithMessage("Quantity must be greater than zero").WithErrorCode("2002");
+            this.RuleFor(m => m.Quantity).GreaterThan(0).WithMessage("Quantity must be greater than zero").WithErrorCode("2002");
         }
     }
 }

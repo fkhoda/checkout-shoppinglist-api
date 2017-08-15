@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\ShoppingListService.Infrastructure.WebApi\bin\Debug\</OutputPath>
+    <OutputPath>..\ShoppingListService.WebApi\bin\Debug\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\ShoppingListService.Infrastructure.WebApi\bin\Release\</OutputPath>
+    <OutputPath>..\ShoppingListService.WebApi\bin\Release\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

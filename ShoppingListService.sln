@@ -4,7 +4,7 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\ShoppingListService.Core\Core.csproj", "{55904739-71E8-478F-8BBD-9A32CAE9E01B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.WebApi", "src\ShoppingListService.Infrastructure.WebApi\Infrastructure.WebApi.csproj", "{DFEEF3A8-F9EB-43AE-AA73-A5FBF7402DAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "src\ShoppingListService.WebApi\WebApi.csproj", "{DFEEF3A8-F9EB-43AE-AA73-A5FBF7402DAB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Actor.Persistence", "src\ShoppingListService.Infrastructure.Actor.Persistence\Infrastructure.Actor.Persistence.csproj", "{10DDFE23-E810-4DB8-AD96-DBD63C5E61D8}"
 EndProject
@@ -12,9 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyResolution", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Actors", "src\ShoppingListService.Infrastructure.Actors\Infrastructure.Actors.csproj", "{CAC2CD76-2AB7-41E5-8626-F0AFF5D567B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Actors.Tests", "tests\ShoppingListService.Infrastructure.Actors.Tests\Infrastructure.Actors.Tests.csproj", "{DE8CF811-D818-40E8-B3CF-7F59DA96A7AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Actors.Tests", "tests\ShoppingListService.Infrastructure.Actors.Tests\Infrastructure.Actors.Tests.csproj", "{DE8CF811-D818-40E8-B3CF-7F59DA96A7AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Actor.Monitoring", "src\ShoppingListService.Infrastructure.Actor.Monitoring\Infrastructure.Actor.Monitoring.csproj", "{DAA15AD5-0D4F-40F2-8220-AF383C354FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Actor.Monitoring", "src\ShoppingListService.Infrastructure.Actor.Monitoring\Infrastructure.Actor.Monitoring.csproj", "{DAA15AD5-0D4F-40F2-8220-AF383C354FF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

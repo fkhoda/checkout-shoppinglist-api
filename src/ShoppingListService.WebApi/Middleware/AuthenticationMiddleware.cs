@@ -1,4 +1,4 @@
-﻿namespace ShoppingListService.Infrastructure.WebApi.Middleware
+﻿namespace ShoppingListService.WebApi.Middleware
 {
     using System;
     using System.Threading.Tasks;
@@ -20,7 +20,7 @@
 
             if (authHeader != null && authHeader.Equals("sk_test_32b9cb39-1cd6-4f86-b750-7069a133667d", StringComparison.OrdinalIgnoreCase))
             {
-                await next.Invoke(context);
+                await this.next.Invoke(context);
             }
             else
             {

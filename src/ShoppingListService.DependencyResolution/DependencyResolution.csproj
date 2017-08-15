@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\ShoppingListService.Infrastructure.WebApi\bin\Debug</OutputPath>
+    <OutputPath>..\ShoppingListService.WebApi\bin\Debug</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\ShoppingListService.Infrastructure.WebApi\bin\Release</OutputPath>
+    <OutputPath>..\ShoppingListService.WebApi\bin\Release</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +25,7 @@
     <ProjectReference Include="..\ShoppingListService.Infrastructure.Actors\Infrastructure.Actors.csproj" />
     <ProjectReference Include="..\ShoppingListService.Core\Core.csproj" />
     <ProjectReference Include="..\ShoppingListService.Infrastructure.Actor.Persistence\Infrastructure.Actor.Persistence.csproj" />
-    <ProjectReference Include="..\ShoppingListService.Infrastructure.WebApi\Infrastructure.WebApi.csproj" />
+    <ProjectReference Include="..\ShoppingListService.WebApi\WebApi.csproj" />
   </ItemGroup>
 
 </Project>

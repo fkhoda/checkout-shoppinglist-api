@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ShoppingListService.Infrastructure.WebApi": {
+    "ShoppingListService.WebApi": {
       "commandName": "Project"
     }
   }

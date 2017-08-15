@@ -1,4 +1,4 @@
-﻿namespace ShoppingListService.Infrastructure.WebApi
+﻿namespace ShoppingListService.WebApi
 {
     using System.IO;
     using System.Linq;

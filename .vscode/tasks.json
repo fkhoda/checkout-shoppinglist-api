@@ -4,7 +4,7 @@
     "isShellCommand": true,
     "args": [],
     "options":  {
-        "cwd": "${workspaceRoot}/src/ShoppingListService.Infrastructure.WebApi"
+        "cwd": "${workspaceRoot}/src/ShoppingListService.WebApi"
     },
     "tasks": [
         {

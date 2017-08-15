@@ -1,4 +1,4 @@
-﻿namespace ShoppingListService.Infrastructure.WebApi.Controllers
+﻿namespace ShoppingListService.WebApi.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -13,8 +13,8 @@
     using ShoppingListService.Core.Application.ShoppingList.Dtos.Responses;
     using ShoppingListService.Core.Domain.ShoppingList.Events;
     using ShoppingListService.Core.Domain.ShoppingList.Models;
-    using ShoppingListService.Infrastructure.WebApi.Helpers;
-    using ShoppingListService.Infrastructure.WebApi.Validators;
+    using ShoppingListService.WebApi.Helpers;
+    using ShoppingListService.WebApi.Validators;
 
     [Route("api/v1.0/[controller]/{customerId}")]
     public class ShoppingListsController : Controller
@@ -36,20 +36,20 @@
         [HttpGet("items")]
         public async Task<ShoppingListDto> Get(string customerId, [FromQuery] GetItemsDto items)
         {
-            var actor = (PID)shoppingListsActorProvider.ActorInstance;
+            var actor = (PID)this.shoppingListsActorProvider.ActorInstance;
             return await actor.RequestAsync<ShoppingListDto>(new GetItems(customerId, items.PageNumber, items.PageSize));
         }
 
         [HttpGet("items/{name}")]
         public async Task<IActionResult> Get(string customerId, string name)
         {
-            var actor = (PID)shoppingListsActorProvider.ActorInstance;
+            var actor = (PID)this.shoppingListsActorProvider.ActorInstance;
 
             var @event = await actor.RequestAsync<ShoppingListEvent>(new GetItem(customerId, name));
 
             switch (@event.Status)
             {
-                case Status.ItemFound: return Ok(new ShoppingListItemDto { Name = ((ItemRetrieved)@event).Name, Quantity = ((ItemRetrieved)@event).Quantity });
+                case Status.ItemFound: return this.Ok(new ShoppingListItemDto { Name = ((ItemRetrieved)@event).Name, Quantity = ((ItemRetrieved)@event).Quantity });
                 case Status.ItemNotFound: return ResponseMessage.NotFound(@event.Status, ItemNotFound);
                 default: return ResponseMessage.BadRequest(@event.Status, UnexpectedError);
             }
@@ -72,7 +72,7 @@
                 return ResponseMessage.BadRequest(error.ErrorCode, error.ErrorMessage);
             }
 
-            var actor = (PID)shoppingListsActorProvider.ActorInstance;
+            var actor = (PID)this.shoppingListsActorProvider.ActorInstance;
 
             var @event = await actor.RequestAsync<ShoppingListEvent>(new AddItem(customerId, item.Name, item.Quantity));
 
@@ -101,7 +101,7 @@
                 return ResponseMessage.BadRequest(error.ErrorCode, error.ErrorMessage);
             }
 
-            var actor = (PID)shoppingListsActorProvider.ActorInstance;
+            var actor = (PID)this.shoppingListsActorProvider.ActorInstance;
 
             var @event = await actor.RequestAsync<ShoppingListEvent>(new UpdateQuantity(customerId, name, item.Quantity));
 
@@ -116,7 +116,7 @@
         [HttpDelete("items/{name}")]
         public async Task<IActionResult> Delete(string customerId, string name)
         {
-            var actor = (PID)shoppingListsActorProvider.ActorInstance;
+            var actor = (PID)this.shoppingListsActorProvider.ActorInstance;
 
             var @event = await actor.RequestAsync<ShoppingListEvent>(new RemoveItem(customerId, name));
 

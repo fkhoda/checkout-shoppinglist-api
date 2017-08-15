@@ -1,4 +1,4 @@
-﻿namespace ShoppingListService.Infrastructure.WebApi.Helpers
+﻿namespace ShoppingListService.WebApi.Helpers
 {
     using Microsoft.AspNetCore.Mvc;
 

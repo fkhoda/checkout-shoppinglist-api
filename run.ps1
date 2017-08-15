@@ -1,4 +1,4 @@
-Push-Location src\ShoppingListService.Infrastructure.WebApi
+Push-Location src\ShoppingListService.WebApi
 
 dotnet run
 

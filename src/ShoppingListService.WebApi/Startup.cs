@@ -1,4 +1,4 @@
-﻿namespace ShoppingListService.Infrastructure.WebApi
+﻿namespace ShoppingListService.WebApi
 {
     using System.IO;
     using System.Linq;
@@ -11,7 +11,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
 
-    using ShoppingListService.Infrastructure.WebApi.Middleware;
+    using ShoppingListService.WebApi.Middleware;
 
     public class Startup
     {
@@ -24,7 +24,7 @@
                 .AddJsonFile("hosting.json", true)
                 .AddEnvironmentVariables();
 
-            Configuration = builder.Build();
+            this.Configuration = builder.Build();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -45,9 +45,8 @@
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddConsole(this.Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            
 
             app.UseMiddleware<AuthenticationMiddleware>();
 
