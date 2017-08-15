@@ -108,6 +108,9 @@ $ kubectl create -f ./kubefiles/sl-service.yaml --namespace=default
 
 ## Architecture
 - Onion Architecture
+
+![](https://raw.githubusercontent.com/fkhoda/checkout-shoppinglist-api/master/docs/onion.png)
+
 - Actor Model with in-memory Event Sourcing and Snapshotting using Proto Actor (<http://proto.actor>)
 
 ![](https://raw.githubusercontent.com/fkhoda/checkout-shoppinglist-api/master/docs/actor-model.png)
