@@ -5,7 +5,7 @@
 
 ### Required
 
-- ASP.NET Core 1.1
+- ASP.NET Core 2.0
 
 ### Optional
 
