@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>ShoppingListService.Infrastructure.Actor.Persistence</AssemblyName>
     <RootNamespace>ShoppingListService.Infrastructure.Actor.Persistence</RootNamespace>
   </PropertyGroup>
@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-    <PackageReference Include="Proto.Actor" Version="0.1.8" />
-    <PackageReference Include="Proto.Persistence" Version="0.1.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Proto.Actor" Version="0.1.10" />
+    <PackageReference Include="Proto.Persistence" Version="0.1.10" />
   </ItemGroup>
 
   <ItemGroup>

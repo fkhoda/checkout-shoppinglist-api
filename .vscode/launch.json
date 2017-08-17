@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/src/ShoppingListService.WebApi/bin/Debug/netcoreapp1.1/ShoppingListService.WebApi.dll",
+            "program": "${workspaceRoot}/src/ShoppingListService.WebApi/bin/Debug/netcoreapp2.0/ShoppingListService.WebApi.dll",
             "args": [],
             "cwd": "${workspaceRoot}/src/ShoppingListService.WebApi",
             "stopAtEntry": false,

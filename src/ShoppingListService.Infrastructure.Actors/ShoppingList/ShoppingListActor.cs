@@ -1,6 +1,8 @@
 namespace ShoppingListService.Infrastructure.Actors.ShoppingList
 {
     using System;
+    using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -12,16 +14,25 @@ namespace ShoppingListService.Infrastructure.Actors.ShoppingList
     using ShoppingListService.Core.Domain.ShoppingList.Events;
     using ShoppingListService.Core.Domain.ShoppingList.Models;
 
-    public class ShoppingListActor : IPersistentActor
+    public class ShoppingListActor : IActor
     {
-        public Persistence Persistence { get; set; }
+        private readonly Persistence persistence;
 
         private ShoppingList State { get; set; } = new ShoppingList();
+
+        public ShoppingListActor(IProvider provider, string actorId)
+        {
+            persistence = Persistence.WithEventSourcingAndSnapshotting(provider, provider, actorId, ApplyEvent, ApplySnapshot);
+        }
 
         public async Task ReceiveAsync(IContext context)
         {
             switch (context.Message)
             {
+                case Started _:
+                    await persistence.RecoverStateAsync();
+                    break;
+
                 case GetItems msg:
                     context.Respond(new ShoppingListDto
                     {
@@ -44,8 +55,8 @@ namespace ShoppingListService.Infrastructure.Actors.ShoppingList
                 case AddItem msg:
                     {
                         var @event = new ItemAdded(msg.Name, msg.Quantity);
-                        await Persistence.PersistEventAsync(@event)
-                            .ContinueWith(t => Persistence.PersistSnapshotAsync(State))
+                        await persistence.PersistEventAsync(@event)
+                            .ContinueWith(t => persistence.PersistSnapshotAsync(State))
                             .ContinueWith(t => context.Respond(@event));
                     }
                     break;
@@ -53,8 +64,8 @@ namespace ShoppingListService.Infrastructure.Actors.ShoppingList
                 case UpdateQuantity msg:
                     {
                         var @event = new QuantityUpdated(msg.Name, msg.Quantity);
-                        await Persistence.PersistEventAsync(@event)
-                            .ContinueWith(t => Persistence.PersistSnapshotAsync(State))
+                        await persistence.PersistEventAsync(@event)
+                            .ContinueWith(t => persistence.PersistSnapshotAsync(State))
                             .ContinueWith(t => context.Respond(@event));
                     }
                     break;
@@ -62,24 +73,10 @@ namespace ShoppingListService.Infrastructure.Actors.ShoppingList
                 case RemoveItem msg:
                     {
                         var @event = new ItemRemoved(msg.Name);
-                        await Persistence.PersistEventAsync(@event)
-                            .ContinueWith(t => Persistence.PersistSnapshotAsync(State))
+                        await persistence.PersistEventAsync(@event)
+                            .ContinueWith(t => persistence.PersistSnapshotAsync(State))
                             .ContinueWith(t => context.Respond(@event));
                     }
-                    break;
-            }
-        }
-
-        public void UpdateState(object message)
-        {
-            switch (message)
-            {
-                case Event e:
-                    ApplyEvent(e);
-                    break;
-
-                case Snapshot s:
-                    ApplySnapshot(s);
                     break;
             }
         }
@@ -134,6 +131,8 @@ namespace ShoppingListService.Infrastructure.Actors.ShoppingList
 
         private void ApplySnapshot(Snapshot snapshot)
         {
+            File.AppendAllLines(@"C:\Users\fkhodabu\log.txt", new List<string> { $"{DateTime.Now} - Applying snapshot" });
+
             if (snapshot.State is ShoppingList shoppingList)
             {
                 State = shoppingList;

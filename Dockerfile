@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:1.1-runtime
+FROM microsoft/dotnet:2.0-runtime
 COPY src/ShoppingListService.DependencyResolution/build /app
 COPY src/ShoppingListService.Infrastructure.Actor.Monitoring/build /app
 COPY src/ShoppingListService.Infrastructure.Actor.Persistence/build /app

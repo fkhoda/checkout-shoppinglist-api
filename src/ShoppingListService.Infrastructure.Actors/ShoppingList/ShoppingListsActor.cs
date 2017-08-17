@@ -26,12 +26,11 @@
             {
                 var message = context.Message as ShoppingListMessage;
 
-                var props = Actor.FromProducer(() => new ShoppingListActor())
-                    .WithReceiveMiddleware(Persistence.Using(persistenceProvider))
+                var childId = $"{context.Self.Id}/{message.CustomerId}";
+
+                var props = Actor.FromProducer(() => new ShoppingListActor(persistenceProvider, childId))
                     .WithReceiveMiddleware(Monitoring.ForReceiveMiddlewareUsing(monitoringProvider))
                     .WithSenderMiddleware(Monitoring.ForSenderMiddlewareUsing(monitoringProvider));
-
-                var childId = $"{context.Self.Id}/{message.CustomerId}";
 
                 var shoppingListActor = context.Children.All(c => c.Id != childId) ?
                     context.SpawnNamed(props, message.CustomerId) :

@@ -22,7 +22,6 @@
 
             services.AddSingleton<IShoppingListsActorProvider, ShoppingListsActorProvider>();
             services.AddSingleton<IProvider, InMemoryProvider>();
-            services.AddSingleton<IInMemoryProviderState, InMemoryProviderState>();
             services.AddSingleton<IMonitoringProvider>(
                 p =>
                     {

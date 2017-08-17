@@ -1,6 +1,5 @@
 ﻿namespace ShoppingListService.Infrastructure.Actors.Tests
 {
-    using System;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -20,11 +19,10 @@
         [Fact]
         public async Task Given_NewItemIsAdded_ResponseStatusCode_ShouldBeItemAdded()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -45,11 +43,10 @@
         [Fact]
         public async Task Given_NewItemIsAdded_ItemAddedEvent_ShouldBeSavedToPersistence()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -61,7 +58,7 @@
 
             shoppingListsActor.Stop();
 
-            await inMemoryProviderState.GetEventsAsync("ShoppingLists/Customer 1", 0,
+            await inMemoryProvider.GetEventsAsync("ShoppingLists/Customer 1", 0, long.MaxValue,
                 o =>
                     {
                         Assert.IsType(typeof(ItemAdded), o);
@@ -73,11 +70,10 @@
         [Fact]
         public async Task Given_NewItemIsAdded_Snapshot_ShouldBeSavedToPersistence()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -89,7 +85,7 @@
 
             shoppingListsActor.Stop();
 
-            var (snapshot, _) = await inMemoryProviderState.GetSnapshotAsync("ShoppingLists/Customer 1");
+            var (snapshot, _) = await inMemoryProvider.GetSnapshotAsync("ShoppingLists/Customer 1");
 
             var snapshotState = snapshot as ShoppingList;
 
@@ -99,11 +95,10 @@
         [Fact]
         public async Task Given_SameItemIsAddedTwice_Quantities_ShouldBeAddedTogether()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -124,11 +119,10 @@
         [Fact]
         public async Task Given_ShoppingListsActorIsRestartedAfterSameItemIsAddedTwice_State_ShouldBeRestoredFromPersistence()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -142,26 +136,26 @@
             shoppingListsActor.Stop();
 
             // Wait for actor termination
-            Thread.Sleep(10);
+            Thread.Sleep(50);
 
             // Respawn dead actor
             shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
-
+            
             var itemRetrieved = await shoppingListsActor.RequestAsync<ShoppingListEvent>(new GetItem(CustomerId, ItemName));
-
+          
             shoppingListsActor.Stop();
 
+            Assert.IsType<ItemRetrieved>(itemRetrieved);
             Assert.Equal(10, ((ItemRetrieved)itemRetrieved).Quantity);
         }
 
         [Fact]
         public async Task Given_ItemQuantityIsUpdatedWithAValue_ItemQuantityReturned_ShouldBeReplacedWithThatValue()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -183,11 +177,10 @@
         [Fact]
         public async Task Given_NonExistingItemIsRemoved_ResponseStatusCode_ShouldBeItemNotFound()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -204,11 +197,10 @@
         [Fact]
         public async Task Given_ExistingItemIsRemoved_ResponseStatusCode_ShouldBeItemRemoved()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var spawnNamed = Actor.SpawnNamed(props, "ShoppingLists");
 
@@ -229,11 +221,10 @@
         [Fact]
         public async Task Given_ExistingItemIsRemoved_Item_ShouldBeRemovedFromStore()
         {
-            var inMemoryProviderState = new InMemoryProviderState();
-            var inMemoryProvider = new InMemoryProvider(inMemoryProviderState);
-            var NoOpMonitoringProvider = new NoOpMonitoringProvider();
+            var inMemoryProvider = new InMemoryProvider();
+            var noOpMonitoringProvider = new NoOpMonitoringProvider();
 
-            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, NoOpMonitoringProvider));
+            var props = Actor.FromProducer(() => new ShoppingListsActor(inMemoryProvider, noOpMonitoringProvider));
 
             var shoppingListsActor = Actor.SpawnNamed(props, "ShoppingLists");
 

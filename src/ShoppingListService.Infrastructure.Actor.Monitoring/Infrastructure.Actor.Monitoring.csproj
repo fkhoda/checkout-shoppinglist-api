@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>ShoppingListService.Infrastructure.Actor.Monitoring</AssemblyName>
     <RootNamespace>ShoppingListService.Infrastructure.Actor.Monitoring</RootNamespace>
   </PropertyGroup>
@@ -25,8 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NEST" Version="5.4.0" />
-    <PackageReference Include="Proto.Actor" Version="0.1.8" />
+    <PackageReference Include="NEST" Version="5.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Proto.Actor" Version="0.1.10" />
   </ItemGroup>
 
   <ItemGroup>
