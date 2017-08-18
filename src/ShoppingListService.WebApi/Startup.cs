@@ -7,10 +7,13 @@
 
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Versioning;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
 
+    using ShoppingListService.WebApi.Controllers;
     using ShoppingListService.WebApi.Middleware;
 
     public class Startup
@@ -32,6 +35,16 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddApiVersioning(
+                options =>
+                    {
+                        options.ReportApiVersions = true;
+                        options.AssumeDefaultVersionWhenUnspecified = true;
+                        options.ApiVersionReader = new MediaTypeApiVersionReader();
+                        options.DefaultApiVersion = new ApiVersion(1, 0);
+                        options.Conventions.Controller<ShoppingListsController>().HasApiVersion(new ApiVersion(1, 0));
+                    });
 
             // Could be cleaner/better when ASP.NET Core supports easier bootstrapping
             var entryPath = Directory.GetParent(Assembly.GetEntryAssembly().Location).FullName;

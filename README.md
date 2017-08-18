@@ -130,31 +130,31 @@ $ kubectl create -f ./kubefiles/sl-service.yaml --namespace=default
 
 Method: POST
 
-URI: /api/v1.0/shoppingLists/{customerId}/items
+URI: /api/shoppingLists/{customerId}/items
 
 ### Get All Items
 
 Method: GET
 
-URI: /api/v1.0/shoppingLists/{customerId}/items[?pageNumber=1&pageSize=10]
+URI: /api/shoppingLists/{customerId}/items[?pageNumber=1&pageSize=10]
 
 ### Get Item
 
 Method: GET
 
-URI: /api/v1.0/shoppingLists/{customerId}/items/{itemName}
+URI: /api/shoppingLists/{customerId}/items/{itemName}
 
 ### Update Quantity
 
 Method: PUT
 
-URI: api/v1.0/shoppingLists/{customerId}/items/{itemName}
+URI: api/shoppingLists/{customerId}/items/{itemName}
 
 ### Delete Item
 
 Method: DELETE
 
-URI: api/v1.0/shoppingLists/{customerId}/items/{itemName}
+URI: api/shoppingLists/{customerId}/items/{itemName}
 
 
 ## Notes

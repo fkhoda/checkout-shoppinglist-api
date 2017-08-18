@@ -16,7 +16,7 @@
     using ShoppingListService.WebApi.Helpers;
     using ShoppingListService.WebApi.Validators;
 
-    [Route("api/v1.0/[controller]/{customerId}")]
+    [Route("api/shoppingLists/{customerId}")]
     public class ShoppingListsController : Controller
     {
         private const string ItemAdded = "Item added successfully";
